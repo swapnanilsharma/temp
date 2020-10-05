@@ -1,0 +1,52 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- bot_challenge
+- question
+- another_question_myjbr
+- another_question_covid
+- quit
+- myjbr
+- covid
+- home
+entities:
+- bot_type
+slots:
+  bot_type:
+    type: text
+responses:
+  utter_home:
+  - buttons:
+    - payload: '/myjbr{"bot_type": "myjbr"}'
+      title: MyJBR
+    - payload: '/covid{"bot_type": "covid"}'
+      title: Covid
+    text: Welcome to PWC bot services. Please select your appropriate bot to talk
+  utter_greet_myjbr:
+  - text: Hey! I am a MyJBR information bot. Please ask your query related to MyJBR
+      platform
+  utter_greet_covid:
+  - text: Hey! I am a Covid19 information bot. Please ask your query related to Covid19
+  utter_answer:
+  - text: 'Answer: {answer}'
+  utter_option:
+  - text: Please select one of the below options
+  utter_goodbye:
+  - text: Thank you for connecting us. Have a great day ahead!
+  utter_iamabot:
+  - text: I am a bot, powered by PwC.
+  utter_another_question_covid:
+  - text: Please ask your query related to Covid19
+  utter_another_question_myjbr:
+  - text: Please ask your query related to MyJBR platform
+actions:
+- action_ask_question
+- utter_option
+- utter_greet_myjbr
+- utter_greet_covid
+- utter_answer
+- utter_iamabot
+- utter_home
+- utter_goodbye
